@@ -60,7 +60,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ profile, posts }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+const getServerSideProps: GetServerSideProps = async (context) => {
   const { userId } = context.params as { userId: string };
   try {
     const profileResponse = await apiClient.get(`/users/profile/${userId}`);
@@ -86,4 +86,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 };
 
+export { getServerSideProps };
 export default UserProfile;
