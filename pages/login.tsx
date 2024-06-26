@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 
-const login = () => {
+function login() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 

@@ -3,6 +3,7 @@ import Post from '../../components/Post';
 import apiClient from '@/lib/apiClient';
 
 import { GetServerSideProps } from 'next';
+import Image from 'next/image';
 
 interface UserProfileProps {
   profile: {
@@ -34,10 +35,12 @@ const UserProfile: React.FC<UserProfileProps> = ({ profile, posts }) => {
         {user && (
           <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
             <div className="flex items-center mb-4">
-              <img
+              <Image
                 className="w-16 h-16 rounded-full mr-4"
                 src={imageUrl || 'https://via.placeholder.com/150'}
                 alt="User Avatar"
+                width={64}
+                height={64}
               />
               <div>
                 <h1 className="text-2xl font-bold">{user.username}</h1>
