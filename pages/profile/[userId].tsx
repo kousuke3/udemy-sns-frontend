@@ -5,30 +5,20 @@ import apiClient from '@/lib/apiClient';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 
+import { profileType, postType } from '@/types/types';
+
 interface UserProfileProps {
-  profile: {
-    imageUrl: string;
-    bio: string;
+  profile: profileType & {
     user: {
       username: string;
       email: string;
     };
   };
-  posts: {
-    id: number;
-    content: string;
-    createdAt: string;
-    author: {
-      username: string;
-      profile: {
-        imageUrl: string;
-      };
-    };
-  }[];
+  posts: postType[];
 }
 
 const UserProfile: React.FC<UserProfileProps> = ({ profile, posts }) => {
-  const { user, imageUrl, bio } = profile;
+  const { user, imageUrl, biography } = profile;
   return (
     <div className="min-h-screen bg-gray-100">
       <main className="container mx-auto py-4">
@@ -47,7 +37,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ profile, posts }) => {
                 <p className="text-gray-600">{user.email}</p>
               </div>
             </div>
-            <p className="text-gray-700">{bio}</p>
+            <p className="text-gray-700">{biography}</p>
           </div>
         )}
         <div className="space-y-4">
