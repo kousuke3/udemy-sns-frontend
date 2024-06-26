@@ -1,6 +1,7 @@
 import React from 'react';
 import { postType } from '../types/types';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface PostProps {
   post: postType;
@@ -13,12 +14,14 @@ const Post: React.FC<PostProps> = ({ post }) => {
       <div className="mb-4">
         <div className="flex items-center mb-2">
           <Link href={`/profile/${post.author?.id}`}>
-            <img
+            <Image
               className="w-10 h-10 rounded-full mr-2"
               src={
                 post.author?.profile?.imageUrl || 'https://via.placeholder.com/150'
               }
               alt="User Avatar"
+              width={40}
+              height={40}
             />
           </Link>
           <div>

@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 
-function login() {
+function Login() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
@@ -103,4 +103,4 @@ function login() {
   );
 };
 
-export default login;
+export default Login;
